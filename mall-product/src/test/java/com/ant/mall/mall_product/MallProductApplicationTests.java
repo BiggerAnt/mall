@@ -1,4 +1,4 @@
-package com.ant.mall.mallproduct;
+package com.ant.mall.mall_product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

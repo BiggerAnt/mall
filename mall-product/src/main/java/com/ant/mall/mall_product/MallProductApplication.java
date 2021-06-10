@@ -1,4 +1,4 @@
-package com.ant.mall.mallproduct;
+package com.ant.mall.mall_product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
