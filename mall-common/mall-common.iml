@@ -45,6 +45,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.17" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.14" level="project" />
   </component>
