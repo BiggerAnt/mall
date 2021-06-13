@@ -16,7 +16,8 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.3</version>
+            <!-- 大坑，3.4.3版本会报错 -->
+            <version>3.2.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
