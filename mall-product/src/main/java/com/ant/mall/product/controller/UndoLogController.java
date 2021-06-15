@@ -26,7 +26,7 @@ import com.ant.common.utils.R;
  * @date 2021-06-10 17:45:35
  */
 @RestController
-@RequestMapping("mall_product/undolog")
+@RequestMapping("product/undolog")
 public class UndoLogController {
     @Autowired
     private UndoLogService undoLogService;

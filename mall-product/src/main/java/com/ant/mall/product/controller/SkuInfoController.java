@@ -26,7 +26,7 @@ import com.ant.common.utils.R;
  * @date 2021-06-10 17:45:37
  */
 @RestController
-@RequestMapping("mall_product/skuinfo")
+@RequestMapping("product/skuinfo")
 public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;

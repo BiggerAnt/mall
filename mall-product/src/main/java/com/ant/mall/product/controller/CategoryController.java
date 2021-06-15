@@ -1,6 +1,7 @@
 package com.ant.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -26,20 +27,19 @@ import com.ant.common.utils.R;
  * @date 2021-06-10 17:45:37
  */
 @RestController
-@RequestMapping("mall_product/category")
+@RequestMapping("product/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 查询所有分类和子分类，以树形结构组装起来
      */
-    @RequestMapping("/list")
-    //@RequiresPermissions("mall_product:category:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
+    @RequestMapping("/list/tree")
+    public R list(){
+        List<CategoryEntity> categories = categoryService.getCategoriesWithTree();
 
-        return R.ok().put("page", page);
+        return R.ok().put("data", categories);
     }
 
 
