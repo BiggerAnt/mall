@@ -26,7 +26,7 @@ import com.ant.common.utils.R;
  * @date 2021-06-10 17:45:38
  */
 @RestController
-@RequestMapping("mall_product/attr")
+@RequestMapping("product/attr")
 public class AttrController {
     @Autowired
     private AttrService attrService;

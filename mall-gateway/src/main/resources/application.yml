@@ -11,12 +11,31 @@ spring:
     #网关
     gateway:
       routes:
-        - id: baidu_route
-          uri: https://www.baidu.com
+        - id: admin_route
+          # lb就是负载均衡的意思
+          uri: lb://renren-fast
           predicates:
-            - Query=url,baidu
+            #只要renren-vue发的请求里面带api，就默认路由到renren-fast
+            - Path=/api/**
+          filters:
+            #路由重写(?<segment>.*)和$\{segment}是正则
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
-        - id: qq_route
-          uri: https://nz.qq.com/
+        - id: product_route
+          uri: lb://,mall-product
           predicates:
-            - Query=url,qq
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+
+
+#        - id: baidu_route
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Query=url,baidu
+#
+#        - id: qq_route
+#          uri: https://nz.qq.com/
+#          predicates:
+#            - Query=url,qq
