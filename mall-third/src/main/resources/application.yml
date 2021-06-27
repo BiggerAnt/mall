@@ -1,0 +1,20 @@
+server:
+  port: 30000
+
+spring:
+  #Nacos注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    #oss对象存储
+    alicloud:
+      access-key: LTAI5tCNj68Y68MizjF8ckkn
+      secret-key: PgchuymYETpoAWCfVKwLNpjb0ZYf7r
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        bucket: mall-product-hello
+  #服务名称
+  application:
+    name: mall-third
+
