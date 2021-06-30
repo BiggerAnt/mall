@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ant.mall</groupId>
-    <artifactId>mall-product</artifactId>
+    <artifactId>mall-third</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mall-product</name>
-    <description>商品信息服务</description>
+    <name>mall-third</name>
+    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>2020.0.3</spring-cloud.version>
@@ -22,6 +22,18 @@
             <groupId>com.ant.mall</groupId>
             <artifactId>mall-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- oos对象存储 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
+            <version>2.2.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,17 +49,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.aliyun.oss</groupId>-->
-<!--            <artifactId>aliyun-sdk-oss</artifactId>-->
-<!--            <version>3.10.2</version>-->
-<!--        </dependency>-->
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -55,6 +56,13 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.3.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

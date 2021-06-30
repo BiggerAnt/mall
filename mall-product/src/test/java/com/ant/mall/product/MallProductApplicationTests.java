@@ -23,4 +23,5 @@ class MallProductApplicationTests {
             System.out.println(x);
         });
     }
+
 }

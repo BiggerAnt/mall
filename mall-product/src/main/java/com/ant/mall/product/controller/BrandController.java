@@ -4,7 +4,11 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.ant.common.valid.AddGroup;
+import com.ant.common.valid.UpdateGroup;
+import com.ant.common.valid.UpdateStatusGroup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +19,6 @@ import com.ant.mall.product.entity.BrandEntity;
 import com.ant.mall.product.service.BrandService;
 import com.ant.common.utils.PageUtils;
 import com.ant.common.utils.R;
-
 
 
 /**
@@ -56,12 +59,13 @@ public class BrandController {
 
     /**
      * 保存
+     * result 校验结果
      */
     @RequestMapping("/save")
     //@RequiresPermissions("mall_product:brand:save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
-
+    //@Validated分组校验
+    public R save(@Validated(value = {AddGroup.class}) @RequestBody BrandEntity brand){
+        brandService.save(brand);
         return R.ok();
     }
 
@@ -70,9 +74,18 @@ public class BrandController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("mall_product:brand:update")
-    public R update(@RequestBody BrandEntity brand){
+    public R update(@Validated(value = {UpdateGroup.class}) @RequestBody BrandEntity brand){
 		brandService.updateById(brand);
+        return R.ok();
+    }
 
+    /**
+     * 修改状态
+     */
+    @RequestMapping("/update/status")
+    //@RequiresPermissions("mall_product:brand:update")
+    public R updateStatus(@Validated(value = {UpdateStatusGroup.class}) @RequestBody BrandEntity brand){
+        brandService.updateById(brand);
         return R.ok();
     }
 

@@ -11,6 +11,20 @@ spring:
     #网关
     gateway:
       routes:
+        - id: product_route
+          uri: lb://mall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: third_route
+          uri: lb://mall-third
+          predicates:
+            - Path=/api/third/**
+          filters:
+            - RewritePath=/api/third/(?<segment>.*),/$\{segment}
+
         - id: admin_route
           # lb就是负载均衡的意思
           uri: lb://renren-fast
@@ -21,12 +35,6 @@ spring:
             #路由重写(?<segment>.*)和$\{segment}是正则
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
-        - id: product_route
-          uri: lb://,mall-product
-          predicates:
-            - Path=/api/product/**
-          filters:
-            - RewritePath=/api/(?<segment>.*),/$\{segment}
 
 
 

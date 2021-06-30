@@ -1,5 +1,5 @@
 server:
-  port: 30080
+  port: 10000
 
 spring:
   datasource:
@@ -12,6 +12,12 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    #oss对象存储
+    alicloud:
+      access-key:
+      secret-key:
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
   #服务名称
   application:
     name: mall-product
@@ -22,3 +28,10 @@ mybatis-plus:
     db-config:
       #主键自增
       id-type: auto
+      #全局逻辑删除（可以省略），1代表已经删除，0代表未删除
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.ant.mall: debug

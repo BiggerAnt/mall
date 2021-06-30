@@ -1,3 +1,2 @@
 # mall
-这是一个微服务商城项目
-基于SpringCloud Aibaba
+商城项目，刚刚起步
