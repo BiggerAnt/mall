@@ -1,0 +1,19 @@
+server:
+  port: 20000
+  #session过期时间
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+  #Nacos注册中心地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  #服务名称
+  application:
+    name: mall-auth-server
+  #session共享存放session的位置
+  session:
+    store-type: redis

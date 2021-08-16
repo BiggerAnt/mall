@@ -4,12 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.ant.common.to.SkuReductionTo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ant.mall.coupon.entity.SkuFullReductionEntity;
 import com.ant.mall.coupon.service.SkuFullReductionService;
@@ -64,6 +61,19 @@ public class SkuFullReductionController {
 
         return R.ok();
     }
+
+    /**
+     * 保存满减信息
+     */
+    @PostMapping("/saveinfo")
+    //@RequiresPermissions("coupon:skufullreduction:save")
+    public R saveInfo(@RequestBody SkuReductionTo skuReductionTo){
+        skuFullReductionService.saveInfo(skuReductionTo);
+
+        return R.ok();
+    }
+
+
 
     /**
      * 修改

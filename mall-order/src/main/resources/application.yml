@@ -15,6 +15,22 @@ spring:
   #服务名称
   application:
     name: mall-order
+  #RabbitMQ
+  rabbitmq:
+    host: 192.168.2.197
+    port: 5672
+    virtual-host: /
+    #开启发送端确认模式
+    publisher-confirm-type: correlated
+    #开启消息抵达队列的确认
+    publisher-returns: true
+    #只要抵达队列，以异步方式优先回调我们这个returnConfirm
+    template:
+      mandatory: true
+    #设置消费消息手动回复ACK
+    listener:
+      simple:
+        acknowledge-mode: manual
 
 mybatis-plus:
   mapper-locations: "classpath:/mapper/**/*.xml"
