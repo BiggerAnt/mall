@@ -5,12 +5,9 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import com.ant.mall.member.feign.CouponFeignService;
+import com.ant.mall.member.vo.UserRegisterVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ant.mall.member.entity.MemberEntity;
 import com.ant.mall.member.service.MemberService;
@@ -79,6 +76,15 @@ public class MemberController {
     public R save(@RequestBody MemberEntity member){
 		memberService.save(member);
 
+        return R.ok();
+    }
+
+    /**
+     * 注册
+     */
+    @PostMapping("/register")
+    public R regis(@RequestBody UserRegisterVo userRegisterVo){
+        memberService.regis(userRegisterVo);
         return R.ok();
     }
 

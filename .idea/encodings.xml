@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/mall-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-auth-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-cart/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-common/src/main/java/com/ant/common/constant/ProductConstant.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/mall-common/src/main/java/com/ant/common/to/MemberPrice.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/mall-common/src/main/java/com/ant/common/utils/TimeRandomUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/mall-common/src/main/resources" charset="GBK" />
     <file url="file://$PROJECT_DIR$/mall-coupon/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-coupon/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-gateway/src/main/java" charset="UTF-8" />
@@ -12,8 +17,13 @@
     <file url="file://$PROJECT_DIR$/mall-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-product/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-product/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-product/src/test/java/com/ant/mall/product/MallProductApplicationTests.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/mall-search/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-third/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-ware/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-ware/src/main/java/com/ant/mall/ware/feign/ProductFeignService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-ware/src/main/java/com/ant/mall/ware/vo/PurchaseDoneVo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-ware/src/main/java/com/ant/mall/ware/vo/PurchaseItemDoneVo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-ware/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/renren-fast/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/renren-fast/src/main/resources" charset="UTF-8" />

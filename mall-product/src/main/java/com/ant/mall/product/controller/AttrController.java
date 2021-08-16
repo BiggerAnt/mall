@@ -1,15 +1,17 @@
 package com.ant.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.ant.mall.product.entity.ProductAttrValueEntity;
+import com.ant.mall.product.service.ProductAttrValueService;
+import com.ant.mall.product.vo.AttrGroupRelationVo;
+import com.ant.mall.product.vo.AttrRespVo;
+import com.ant.mall.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ant.mall.product.entity.AttrEntity;
 import com.ant.mall.product.service.AttrService;
@@ -31,6 +33,9 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
+
     /**
      * 列表
      */
@@ -44,14 +49,37 @@ public class AttrController {
 
 
     /**
+     * 基本信息列表、销售信息列表
+     */
+    @GetMapping("/{attrType}/list/{catelogId}")
+    //@RequiresPermissions("mall_product:attr:list")
+    public R baseAttrList(@RequestParam Map<String, Object> params,
+                          @PathVariable("catelogId") Long catelogId,
+                          @PathVariable("attrType") String type){
+        PageUtils page = attrService.queryBaseAttrPage(params, catelogId, type);
+        return R.ok().put("page", page);
+    }
+
+    /**
+     *
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/base/listforspu/{spuId}")
+    public R baseAttrForSpu(@PathVariable("spuId") Long spuId){
+       List<ProductAttrValueEntity> products =  productAttrValueService.baseAttrForSpu(spuId);
+       return R.ok().put("data",products);
+    }
+
+    /**
      * 信息
      */
     @RequestMapping("/info/{attrId}")
     //@RequiresPermissions("mall_product:attr:info")
     public R info(@PathVariable("attrId") Long attrId){
-		AttrEntity attr = attrService.getById(attrId);
-
-        return R.ok().put("attr", attr);
+		//AttrEntity attr = attrService.getById(attrId);
+        AttrRespVo respVo = attrService.getAttrInfo(attrId);
+        return R.ok().put("attr", respVo);
     }
 
     /**
@@ -59,8 +87,8 @@ public class AttrController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("mall_product:attr:save")
-    public R save(@RequestBody AttrEntity attr){
-		attrService.save(attr);
+    public R save(@RequestBody AttrVo attr){
+		attrService.saveAttr(attr);
 
         return R.ok();
     }
@@ -70,8 +98,19 @@ public class AttrController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("mall_product:attr:update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrVo attr){
+		attrService.updateAttr(attr);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改
+     */
+    @PostMapping("/update/{spuId}")
+    //@RequiresPermissions("mall_product:attr:update")
+    public R updateSpuAttr(@PathVariable("spuId") Long spuId,@RequestBody List<ProductAttrValueEntity> list){
+        productAttrValueService.updateSpuAttr(spuId, list);
 
         return R.ok();
     }
@@ -86,5 +125,4 @@ public class AttrController {
 
         return R.ok();
     }
-
 }
